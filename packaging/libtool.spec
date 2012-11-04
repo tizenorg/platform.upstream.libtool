@@ -1,0 +1,71 @@
+Name:           libtool
+BuildRequires:  automake
+BuildRequires:  gcc-c++
+BuildRequires:  lzma
+BuildRequires:  zlib-devel
+BuildRequires:	makeinfo
+Requires:       automake > 1.4
+Requires:       tar
+Summary:        A Tool to Build Shared Libraries
+License:        GPL-2.0+
+Group:          Development/Tools/Building
+Version:        2.4.2
+Release:        0
+Requires:       libltdl = %{version}
+Url:            http://www.gnu.org/software/libtool/
+Source:         http://ftp.gnu.org/gnu/libtool/libtool-%{version}.tar.gz
+Source2:        baselibs.conf
+Source3:        libtool-rpmlintrc
+Provides:       libltdl-devel
+# fedora name
+Provides:       libtool-ltdl-devel
+
+%description
+GNU libtool is a set of shell scripts to automatically configure UNIX
+architectures to build shared libraries in a generic fashion.
+
+%package -n libltdl
+Summary:        Libtool Runtime Library
+Group:          Development/Libraries/C and C++
+
+%description -n libltdl
+Library needed by programs that use the ltdl interface of GNU libtool.
+
+%prep
+%setup -q -n libtool-%{version}
+
+%build
+./configure CFLAGS="$RPM_OPT_FLAGS" \
+   --prefix=/usr --infodir=%{_infodir} --libdir=%{_libdir}
+# force rebuild with non-broken makeinfo
+rm -f doc/libtool.info
+make %{?_smp_mflags}
+
+
+%install
+%make_install
+
+%post -n libltdl -p /sbin/ldconfig
+
+%postun -n libltdl -p /sbin/ldconfig
+
+%files
+%defattr(-, root, root)
+/usr/bin/libtool
+/usr/bin/libtoolize
+/usr/include/libltdl
+/usr/include/ltdl.h
+%{_libdir}/libltdl.a
+%attr(644, root, root) %{_libdir}/libltdl.la
+%{_libdir}/libltdl.so
+/usr/share/aclocal/*.m4
+%doc %{_infodir}/libtool.info*
+%doc %{_mandir}/man1/libtool.1.gz
+%doc %{_mandir}/man1/libtoolize.1.gz
+/usr/share/libtool
+
+%files -n libltdl
+%defattr(-, root, root)
+%{_libdir}/libltdl.so.*
+
+%changelog
