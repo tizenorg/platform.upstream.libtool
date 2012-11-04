@@ -1,3 +1,4 @@
+%define keepstatic 1
 Name:           libtool
 BuildRequires:  automake
 BuildRequires:  gcc-c++
