@@ -44,7 +44,7 @@ make %{?_smp_mflags}
 
 
 %install
-%make_install
+make install DESTDIR=$RPM_BUILD_ROOT
 
 %post -n libltdl -p /sbin/ldconfig
 
