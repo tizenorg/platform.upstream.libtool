@@ -27,7 +27,7 @@ architectures to build shared libraries in a generic fashion.
 
 %package -n libltdl
 Summary:        Libtool Runtime Library
-Group:          Development/Libraries
+Group:          System/Libraries
 
 %description -n libltdl
 Library needed by programs that use the ltdl interface of GNU libtool.

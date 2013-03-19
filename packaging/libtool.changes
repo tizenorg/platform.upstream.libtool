@@ -1,3 +1,6 @@
+* Tue Mar 19 2013 Anas Nashif <anas.nashif@intel.com> submit/trunk/20130319.034202@3de1dd7
+- libltdl belongs to System/Libraries
+
 * Mon Mar 18 2013 Anas Nashif <anas.nashif@intel.com> upstream/2.4.2@1ea174a
 - Fixed package groups
 
