@@ -9,7 +9,7 @@ Requires:       automake > 1.4
 Requires:       tar
 Summary:        A Tool to Build Shared Libraries
 License:        GPL-2.0+
-Group:          Development/Tools/Building
+Group:          Development/Tools
 Version:        2.4.2
 Release:        0
 Requires:       libltdl = %{version}
@@ -27,7 +27,7 @@ architectures to build shared libraries in a generic fashion.
 
 %package -n libltdl
 Summary:        Libtool Runtime Library
-Group:          Development/Libraries/C and C++
+Group:          Development/Libraries
 
 %description -n libltdl
 Library needed by programs that use the ltdl interface of GNU libtool.
@@ -52,6 +52,7 @@ make install DESTDIR=$RPM_BUILD_ROOT
 
 %files
 %defattr(-, root, root)
+%license COPYING
 /usr/bin/libtool
 /usr/bin/libtoolize
 /usr/include/libltdl
