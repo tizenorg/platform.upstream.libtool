@@ -17,6 +17,7 @@ Url:            http://www.gnu.org/software/libtool/
 Source:         http://ftp.gnu.org/gnu/libtool/libtool-%{version}.tar.gz
 Source2:        baselibs.conf
 Source3:        libtool-rpmlintrc
+Source1001: 	libtool.manifest
 Provides:       libltdl-devel
 # fedora name
 Provides:       libtool-ltdl-devel
@@ -34,6 +35,7 @@ Library needed by programs that use the ltdl interface of GNU libtool.
 
 %prep
 %setup -q -n libtool-%{version}
+cp %{SOURCE1001} .
 
 %build
 ./configure CFLAGS="$RPM_OPT_FLAGS" \
@@ -51,6 +53,7 @@ make install DESTDIR=$RPM_BUILD_ROOT
 %postun -n libltdl -p /sbin/ldconfig
 
 %files
+%manifest %{name}.manifest
 %defattr(-, root, root)
 %license COPYING
 /usr/bin/libtool
@@ -67,6 +70,7 @@ make install DESTDIR=$RPM_BUILD_ROOT
 /usr/share/libtool
 
 %files -n libltdl
+%manifest %{name}.manifest
 %defattr(-, root, root)
 %{_libdir}/libltdl.so.*
 
