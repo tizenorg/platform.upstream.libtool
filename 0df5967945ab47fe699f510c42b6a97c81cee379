@@ -1,0 +1,9 @@
+Change-Id: I0df5967945ab47fe699f510c42b6a97c81cee379
+Code-Review+2: Ryan Ware <ware@linux.intel.com>
+Verified+1: Ryan Ware <ware@linux.intel.com>
+Code-Review+1: Patrick McCarty <patrick.mccarty@linux.intel.com>
+Submitted-by: Ryan Ware <ware@linux.intel.com>
+Submitted-at: Mon, 08 Jul 2013 09:36:33 -0700
+Reviewed-on: https://review.tizen.org/gerrit/5181
+Project: platform/upstream/libtool
+Branch: refs/heads/tizen
