@@ -5,6 +5,7 @@ BuildRequires:  gcc-c++
 BuildRequires:  lzma
 BuildRequires:  zlib-devel
 BuildRequires:	makeinfo
+BuildRequires:	help2man
 Requires:       automake > 1.4
 Requires:       tar
 Summary:        A Tool to Build Shared Libraries
@@ -38,6 +39,7 @@ Library needed by programs that use the ltdl interface of GNU libtool.
 cp %{SOURCE1001} .
 
 %build
+./bootstrap
 %configure
 # force rebuild with non-broken makeinfo
 rm -f doc/libtool.info
