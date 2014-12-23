@@ -38,6 +38,7 @@ Library needed by programs that use the ltdl interface of GNU libtool.
 cp %{SOURCE1001} .
 
 %build
+./bootstrap
 %configure
 # force rebuild with non-broken makeinfo
 rm -f doc/libtool.info
