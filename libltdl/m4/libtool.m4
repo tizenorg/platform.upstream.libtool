@@ -6975,9 +6975,16 @@ _LT_EOF
 ])
 
 _lt_libdeps_save_CFLAGS=$CFLAGS
+_lt_libdeps_save_CXXFLAGS=$CXXFLAGS
 case "$CC $CFLAGS " in #(
 *\ -flto*\ *) CFLAGS="$CFLAGS -fno-lto" ;;
 *\ -fwhopr*\ *) CFLAGS="$CFLAGS -fno-whopr" ;;
+*\ -fuse-linker-plugin*\ *) CFLAGS="$CFLAGS -fno-use-linker-plugin" ;;
+esac
+case "$CC $CXXFLAGS " in #(
+*\ -flto*\ *) CXXFLAGS="$CXXFLAGS -fno-lto" ;;
+*\ -fwhopr*\ *) CXXFLAGS="$CXXFLAGS -fno-whopr" ;;
+*\ -fuse-linker-plugin*\ *) CXXFLAGS="$CXXFLAGS -fno-use-linker-plugin" ;;
 *\ -fuse-linker-plugin*\ *) CFLAGS="$CFLAGS -fno-use-linker-plugin" ;;
 esac
 
@@ -7076,6 +7083,7 @@ fi
 
 $RM -f confest.$objext
 CFLAGS=$_lt_libdeps_save_CFLAGS
+CXXFLAGS=$_lt_libdeps_save_CXXFLAGS
 
 # PORTME: override above test on systems where it is broken
 m4_if([$1], [CXX],
