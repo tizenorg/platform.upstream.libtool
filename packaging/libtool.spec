@@ -8,7 +8,7 @@ BuildRequires:	makeinfo
 Requires:       automake > 1.4
 Requires:       tar
 Summary:        A Tool to Build Shared Libraries
-License:        GPL-2.0+
+License:        GPL-2.0+ and GFDL-1.3
 Group:          Development/Tools
 Version:        2.4.2
 Release:        0
