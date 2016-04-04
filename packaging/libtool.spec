@@ -38,6 +38,9 @@ Library needed by programs that use the ltdl interface of GNU libtool.
 cp %{SOURCE1001} .
 
 %build
+export CFLAGS+=" -fvisibility=hidden"
+  export CXXFLAGS+=" -fvisibility=hidden"
+  
 ./configure CFLAGS="$RPM_OPT_FLAGS" \
    --prefix=/usr --infodir=%{_infodir} --libdir=%{_libdir}
 # force rebuild with non-broken makeinfo

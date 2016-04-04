@@ -76,8 +76,8 @@ enum {
 #define LT_ERROR_LEN_MAX (41)
 
 /* These functions are only useful from inside custom module loaders. */
-LT_SCOPE int	lt_dladderror	(const char *diagnostic);
-LT_SCOPE int	lt_dlseterror	(int errorcode);
+__attribute__ ((visibility ("default"))) LT_SCOPE int	lt_dladderror	(const char *diagnostic);
+__attribute__ ((visibility ("default"))) LT_SCOPE int	lt_dlseterror	(int errorcode);
 
 
 LT_END_C_DECLS

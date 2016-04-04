@@ -50,37 +50,37 @@ LT_BEGIN_C_DECLS
 typedef	struct lt__handle *lt_dlhandle;	/* A loaded module.  */
 
 /* Initialisation and finalisation functions for libltdl. */
-LT_SCOPE int	    lt_dlinit		(void);
-LT_SCOPE int	    lt_dlexit		(void);
+__attribute__ ((visibility ("default"))) LT_SCOPE int	    lt_dlinit		(void);
+__attribute__ ((visibility ("default"))) LT_SCOPE int	    lt_dlexit		(void);
 
 /* Module search path manipulation.  */
-LT_SCOPE int	    lt_dladdsearchdir	 (const char *search_dir);
-LT_SCOPE int	    lt_dlinsertsearchdir (const char *before,
+__attribute__ ((visibility ("default"))) LT_SCOPE int	    lt_dladdsearchdir	 (const char *search_dir);
+__attribute__ ((visibility ("default"))) LT_SCOPE int	    lt_dlinsertsearchdir (const char *before,
 						  const char *search_dir);
-LT_SCOPE int 	    lt_dlsetsearchpath	 (const char *search_path);
-LT_SCOPE const char *lt_dlgetsearchpath	 (void);
-LT_SCOPE int	    lt_dlforeachfile	 (
+__attribute__ ((visibility ("default"))) LT_SCOPE int 	    lt_dlsetsearchpath	 (const char *search_path);
+__attribute__ ((visibility ("default"))) LT_SCOPE const char *lt_dlgetsearchpath	 (void);
+__attribute__ ((visibility ("default"))) LT_SCOPE int	    lt_dlforeachfile	 (
 			const char *search_path,
 			int (*func) (const char *filename, void *data),
 			void *data);
 
 /* User module loading advisors.  */
-LT_SCOPE int	    lt_dladvise_init	 (lt_dladvise *advise);
-LT_SCOPE int	    lt_dladvise_destroy  (lt_dladvise *advise);
-LT_SCOPE int	    lt_dladvise_ext	 (lt_dladvise *advise);
-LT_SCOPE int	    lt_dladvise_resident (lt_dladvise *advise);
-LT_SCOPE int	    lt_dladvise_local	 (lt_dladvise *advise);
-LT_SCOPE int	    lt_dladvise_global   (lt_dladvise *advise);
-LT_SCOPE int	    lt_dladvise_preload	 (lt_dladvise *advise);
+__attribute__ ((visibility ("default"))) LT_SCOPE int	    lt_dladvise_init	 (lt_dladvise *advise);
+__attribute__ ((visibility ("default"))) LT_SCOPE int	    lt_dladvise_destroy  (lt_dladvise *advise);
+__attribute__ ((visibility ("default"))) LT_SCOPE int	    lt_dladvise_ext	 (lt_dladvise *advise);
+__attribute__ ((visibility ("default"))) LT_SCOPE int	    lt_dladvise_resident (lt_dladvise *advise);
+__attribute__ ((visibility ("default"))) LT_SCOPE int	    lt_dladvise_local	 (lt_dladvise *advise);
+__attribute__ ((visibility ("default"))) LT_SCOPE int	    lt_dladvise_global   (lt_dladvise *advise);
+__attribute__ ((visibility ("default"))) LT_SCOPE int	    lt_dladvise_preload	 (lt_dladvise *advise);
 
 /* Portable libltdl versions of the system dlopen() API. */
-LT_SCOPE lt_dlhandle lt_dlopen		(const char *filename);
-LT_SCOPE lt_dlhandle lt_dlopenext	(const char *filename);
-LT_SCOPE lt_dlhandle lt_dlopenadvise	(const char *filename,
+__attribute__ ((visibility ("default"))) LT_SCOPE lt_dlhandle lt_dlopen		(const char *filename);
+__attribute__ ((visibility ("default"))) LT_SCOPE lt_dlhandle lt_dlopenext	(const char *filename);
+__attribute__ ((visibility ("default"))) LT_SCOPE lt_dlhandle lt_dlopenadvise	(const char *filename,
 					 lt_dladvise advise);
-LT_SCOPE void *	    lt_dlsym		(lt_dlhandle handle, const char *name);
-LT_SCOPE const char *lt_dlerror		(void);
-LT_SCOPE int	    lt_dlclose		(lt_dlhandle handle);
+__attribute__ ((visibility ("default"))) LT_SCOPE void *	    lt_dlsym		(lt_dlhandle handle, const char *name);
+__attribute__ ((visibility ("default"))) LT_SCOPE const char *lt_dlerror		(void);
+__attribute__ ((visibility ("default"))) LT_SCOPE int	    lt_dlclose		(lt_dlhandle handle);
 
 
 
@@ -96,14 +96,14 @@ typedef struct {
 
 typedef int lt_dlpreload_callback_func (lt_dlhandle handle);
 
-LT_SCOPE int	lt_dlpreload	     (const lt_dlsymlist *preloaded);
-LT_SCOPE int	lt_dlpreload_default (const lt_dlsymlist *preloaded);
-LT_SCOPE int	lt_dlpreload_open    (const char *originator,
+__attribute__ ((visibility ("default"))) LT_SCOPE int	lt_dlpreload	     (const lt_dlsymlist *preloaded);
+__attribute__ ((visibility ("default"))) LT_SCOPE int	lt_dlpreload_default (const lt_dlsymlist *preloaded);
+__attribute__ ((visibility ("default"))) LT_SCOPE int	lt_dlpreload_open    (const char *originator,
 				      lt_dlpreload_callback_func *func);
 
 #define lt_preloaded_symbols	lt__PROGRAM__LTX_preloaded_symbols
 /* Ensure C linkage.  */
-extern LT_DLSYM_CONST lt_dlsymlist lt__PROGRAM__LTX_preloaded_symbols[];
+__attribute__ ((visibility ("default"))) extern LT_DLSYM_CONST lt_dlsymlist lt__PROGRAM__LTX_preloaded_symbols[];
 
 #define LTDL_SET_PRELOADED_SYMBOLS() \
 	lt_dlpreload_default(lt_preloaded_symbols)
@@ -118,12 +118,12 @@ extern LT_DLSYM_CONST lt_dlsymlist lt__PROGRAM__LTX_preloaded_symbols[];
 typedef void * lt_dlinterface_id;
 typedef int lt_dlhandle_interface (lt_dlhandle handle, const char *id_string);
 
-LT_SCOPE lt_dlinterface_id lt_dlinterface_register (const char *id_string,
+__attribute__ ((visibility ("default"))) LT_SCOPE lt_dlinterface_id lt_dlinterface_register (const char *id_string,
 					  lt_dlhandle_interface *iface);
-LT_SCOPE void	lt_dlinterface_free (lt_dlinterface_id key);
-LT_SCOPE void *	lt_dlcaller_set_data  (lt_dlinterface_id key,
+__attribute__ ((visibility ("default"))) LT_SCOPE void	lt_dlinterface_free (lt_dlinterface_id key);
+__attribute__ ((visibility ("default"))) LT_SCOPE void *	lt_dlcaller_set_data  (lt_dlinterface_id key,
 					  lt_dlhandle handle, void *data);
-LT_SCOPE void *	lt_dlcaller_get_data  (lt_dlinterface_id key,
+__attribute__ ((visibility ("default"))) LT_SCOPE void *	lt_dlcaller_get_data  (lt_dlinterface_id key,
 					  lt_dlhandle handle);
 
 
@@ -140,21 +140,21 @@ typedef	struct {
 				   locally. */
 } lt_dlinfo;
 
-LT_SCOPE const lt_dlinfo *lt_dlgetinfo	    (lt_dlhandle handle);
+__attribute__ ((visibility ("default"))) LT_SCOPE const lt_dlinfo *lt_dlgetinfo	    (lt_dlhandle handle);
 
-LT_SCOPE lt_dlhandle	lt_dlhandle_iterate (lt_dlinterface_id iface,
+__attribute__ ((visibility ("default"))) LT_SCOPE lt_dlhandle	lt_dlhandle_iterate (lt_dlinterface_id iface,
 					     lt_dlhandle place);
-LT_SCOPE lt_dlhandle	lt_dlhandle_fetch   (lt_dlinterface_id iface,
+__attribute__ ((visibility ("default"))) LT_SCOPE lt_dlhandle	lt_dlhandle_fetch   (lt_dlinterface_id iface,
 					     const char *module_name);
-LT_SCOPE int		lt_dlhandle_map	    (lt_dlinterface_id iface,
+__attribute__ ((visibility ("default"))) LT_SCOPE int		lt_dlhandle_map	    (lt_dlinterface_id iface,
 				int (*func) (lt_dlhandle handle, void *data),
 				void *data);
 
 
 
 /* Deprecated module residency management API. */
-LT_SCOPE int	    lt_dlmakeresident	(lt_dlhandle handle);
-LT_SCOPE int	    lt_dlisresident	(lt_dlhandle handle);
+__attribute__ ((visibility ("default"))) LT_SCOPE int	    lt_dlmakeresident	(lt_dlhandle handle);
+__attribute__ ((visibility ("default"))) LT_SCOPE int	    lt_dlisresident	(lt_dlhandle handle);
 
 #define lt_ptr void *
 
