@@ -41,7 +41,7 @@ cp %{SOURCE1001} .
 export CFLAGS+=" -fvisibility=hidden"
   export CXXFLAGS+=" -fvisibility=hidden"
   
-./configure CFLAGS="$RPM_OPT_FLAGS" \
+./configure CFLAGS="$RPM_OPT_FLAGS -fvisibility=hidden" \
    --prefix=/usr --infodir=%{_infodir} --libdir=%{_libdir}
 # force rebuild with non-broken makeinfo
 rm -f doc/libtool.info
